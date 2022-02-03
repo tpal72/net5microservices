@@ -51,17 +51,7 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 
 docker-compose -f docker-compose.yml -f docker-compose.override.yml down
 
-# Docker cleanup
-
-docker ps -aq
-docker images -q
-
-docker stop $(docker ps -aq)
-docker rm $(docker ps -aq)
-docker rmi $(docker images -q)
-docker system prune
-
-# API with REDIS Cache Docker database
+## API with REDIS Cache Docker database
 
 - REDIS -> Remote Dictionary Server
 - Open Source NoSQL Database
@@ -78,4 +68,25 @@ redis-cli
 set key1 value1
 get key1
 
+- Add redis to docker-compose file. Add alpine version [light weight]
+
+
+
+
+# Container management with Portainer
+- Deploy and manage containers
+- Add to docker-compose file
+
+admin
+admin1234
+
+# Docker cleanup
+
+docker ps -aq
+docker images -q
+
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker rmi $(docker images -q)
+docker system prune
 
