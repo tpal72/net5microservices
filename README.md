@@ -1,6 +1,11 @@
 # net5microservices
 net5microservices
 
+## Setup launchsettings
+
+- Change Profile and Port number as per requirement
+
+
 ## Setup Mongo
 
 ### Pull mongo image
@@ -18,6 +23,10 @@ docker start <docker ref> # if already running
 - show databases
 - use CatalogDB #Create new DB
 - db.createCollection('Products')
+
+docker run -d -p 27017:27017 --name catalogdb mongo
+docker exec -it catalogdb /bin/bash
+
 
 ### Mongo GUI
 
@@ -52,7 +61,21 @@ docker rm $(docker ps -aq)
 docker rmi $(docker images -q)
 docker system prune
 
+# API with REDIS Cache Docker database
 
+- REDIS -> Remote Dictionary Server
+- Open Source NoSQL Database
 
+docker pull redis
+
+docker run -d -p 6379:6379 --name aspnetrun-redis redis
+
+docker exec -it aspnetrun-redis /bin/bash
+
+## REDIS-CLI commands
+
+redis-cli
+set key1 value1
+get key1
 
 
