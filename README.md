@@ -70,7 +70,20 @@ get key1
 
 - Add redis to docker-compose file. Add alpine version [light weight]
 
+## Discount API PostgreSQL database
 
+docker pull postgres
+
+- Admin Portal for postgres management using pgAdmin
+- Connect to postgres db using pgadmin
+- create table using pgadmin portal
+
+- NUGET: npgsql, Dapper (ORM)
+
+- Migrate database eon application startup - create DB/Add table/Add seeding data
+  Modify Program.cs 
+
+### gRPC Communication
 
 
 # Container management with Portainer
