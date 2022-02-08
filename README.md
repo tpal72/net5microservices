@@ -49,6 +49,9 @@ Use mongoclient image
 
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 
+### Rebuild i if change in any existing code
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --build
+
 docker-compose -f docker-compose.yml -f docker-compose.override.yml down
 
 ## API with REDIS Cache Docker database
@@ -85,6 +88,10 @@ docker pull postgres
 
 ### gRPC Communication
 
+- Consume Discount.gRPC in BAsket.API
+- Add Connected Service (gRPC)
+	- Add proto file
+	- Create Client class
 
 # Container management with Portainer
 - Deploy and manage containers
