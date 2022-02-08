@@ -75,16 +75,31 @@ get key1
 
 ## Discount API PostgreSQL database
 
-docker pull postgres
+- docker pull postgres
 
 - Admin Portal for postgres management using pgAdmin
 - Connect to postgres db using pgadmin
 - create table using pgadmin portal
 
+- pgAdmin -> Add sever -> Name: DiscountServer, Host: discountdb, Post: 5432, cred: admin/admin1234
+
 - NUGET: npgsql, Dapper (ORM)
 
-- Migrate database eon application startup - create DB/Add table/Add seeding data
+- Migrate database on application startup - create DB/Add table/Add seeding data
   Modify Program.cs 
+
+> gRPC Communication
+
+- with PostGreSQL
+- gRPS require HTTP/2 protocol, high performance, synchronous communication
+- guthub -> aspnetrun -> run-aspnet-grpc
+- best for communication between backend and internal APIs
+- Add Asp.NET Core gRPc project to solution
+- dotnet new grpc -o Discount.Grpc
+- dotnet build
+- dotnet run
+
+- Add AutoMapper.Extensions.Microsft.DependancyInjection
 
 ### gRPC Communication
 
