@@ -30,11 +30,9 @@ docker exec -it catalogdb /bin/bash
 
 ### Mongo GUI
 
-Use mongoclient image
+Use mongoclient image - GUI for mongo
 
-## Setup Entities
-
-## Setup Datalayer
+## Catalog Service - Setup Datalayer
 
 - add DB details to appSettings.json
 - Add ICatalogContext
@@ -49,7 +47,8 @@ Use mongoclient image
 
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 
-### Rebuild i if change in any existing code
+- Rebuild  if change in any existing code
+
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --build
 
 docker-compose -f docker-compose.yml -f docker-compose.override.yml down
@@ -68,7 +67,9 @@ docker exec -it aspnetrun-redis /bin/bash
 ## REDIS-CLI commands
 
 redis-cli
+
 set key1 value1
+
 get key1
 
 - Add redis to docker-compose file. Add alpine version [light weight]
@@ -101,12 +102,78 @@ get key1
 
 - Add AutoMapper.Extensions.Microsft.DependancyInjection
 
-### gRPC Communication
+### gRPC Consumption
 
 - Consume Discount.gRPC in BAsket.API
 - Add Connected Service (gRPC)
 	- Add proto file
 	- Create Client class
+
+# Ordering API
+
+### Intro
+- SQL Server, REST Api, Entity Framework core code first
+- Clean Architecture
+- DDD [Domain Driver Architecture], CQRS [seperate queries and commands], SOLID
+- MediatR, FluentValidation, Automapper
+
+- Queries & ViewModels [reads], Commands & Domain-Model [Updates]
+
+### SOLID Design principle
+
+- S : Single Responsibility principle
+- O : Open [for extensibility] - Close [for modification] principle
+- L : Liskov substituion principle ???
+- I : Interface segregation principle
+- D : Dependancy Inversion principle
+
+### Design principle - DIP - Dependancy Inversion principle
+
+### Design principle - SoC - Seperation of concerns
+- Low coupling, high cohesion
+
+### Design principle - DDD - Domain Driven Design
+
+### Clean architetcure with DDD
+
+### CQRS - Command Query Request seperation
+- Read and Write DB are different, usually
+- Different READ and WRITE models
+
+### Eventual consistency with CQRS pattern
+- system will be eventual consistent
+- Asynchronus processes
+- No transactional dependancy
+
+### Event sourcing
+- Accumulating events in system
+- Generate state from events
+
+### CQRS Architecture
+
+- Layers : Domain, Application, API, Infrastructure
+- Domain layer: No dependancy
+- Application layer: Depend on Domain, All Business use cases
+	Contracts - Interfaces and Abstractions
+	Features - Implement CQRS pattern and business concerns, use cases
+	Behaviours - Validation, logging and other Cross cutting concerns
+- App and Domain are CORE, no external dependancy
+- Infrastructure on Application layer
+- API on Application and Infrastructure layers
+- ValueObject : Concept of Domain Driven Design
+
+- Jason Taylor, Gill Cleeren for Clean Architecture
+
+- Mediator Pattern - impelemented by MediatR nuget
+- Command, CommandHandler, Query, QueryHandler, CommandValidator [Use Nuget FluentValidation]
+
+- IPipeLineBehaviours - For X-Cutting concerns
+
+## Ordering.API Project
+
+- ASP.NET Core API
+- Add Clean Architecture layers
+
 
 # Container management with Portainer
 - Deploy and manage containers
