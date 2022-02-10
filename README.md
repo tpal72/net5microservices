@@ -193,6 +193,11 @@ get key1
 > EF Core migrations for Code first approach
 - Install-Package Microsoft.EntityFrameworkCore.Tools in Ordering.API
 - Add-Migration InitialCreate
+- dotnet tool install --global dotnet-ef
+- Add "dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.14" to project
+- dotnet ef --startup-project ../Ordering.API/ migrations add InitialCreate
+- Run Migrartion operaration on application startup automatically
+- 
 
 
 # Container management with Portainer
