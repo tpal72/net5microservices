@@ -164,17 +164,33 @@ get key1
 
 - Jason Taylor, Gill Cleeren for Clean Architecture
 
-- Mediator Pattern - impelemented by MediatR nuget
-- Command, CommandHandler, Query, QueryHandler, CommandValidator [Use Nuget FluentValidation]
 
-- IPipeLineBehaviours - For X-Cutting concerns
 
 ## Ordering.API Project
 
 - ASP.NET Core API
 - Add Clean Architecture layers
+- Mediator Pattern - impelemented by MediatR nuget
+- Command, CommandHandler, Query, QueryHandler, CommandValidator [Use Nuget FluentValidation]
 
+- IPipeLineBehaviours - For X-Cutting concerns
 
+- Create Registration extension class in Application layer to be used for DI in Startup.cs
+- Add Automaper.Microsft.Extensions.DependancyInjection
+- Add FluentValidation.Microsft.Extensions.DependancyInjection
+
+## Infrastructure layer
+
+> DB Layer
+- DBContext from EntityFrameworkCore
+- Code first approach
+- IF EFCOre is replaced then only change the OrderContext object
+
+> EMAIL Layer
+- Use Sendgrid library [100 mail/day free]
+- c# - Get email settings from application setting so use IOptions
+
+> EF COre migrations for Code first approach
 # Container management with Portainer
 - Deploy and manage containers
 - Add to docker-compose file
