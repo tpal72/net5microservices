@@ -190,7 +190,11 @@ get key1
 - Use Sendgrid library [100 mail/day free]
 - c# - Get email settings from application setting so use IOptions
 
-> EF COre migrations for Code first approach
+> EF Core migrations for Code first approach
+- Install-Package Microsoft.EntityFrameworkCore.Tools in Ordering.API
+- Add-Migration InitialCreate
+
+
 # Container management with Portainer
 - Deploy and manage containers
 - Add to docker-compose file
