@@ -204,6 +204,29 @@ get key1
 sa
 SwN12345678
 
+# Async Communication with RabbitMQ and Mass Transit
+
+- Between Basket and Ordering API
+
+> Communication types
+- Request Response
+- Event Driven
+- Hybrid
+
+> RabbitMQ
+- Message Queue System, other examples Apache Kafka, Az Svc Bus, etc
+- Producer => RMQ [Exchange (Direct, Topic, Fanout, Header) - Bindings (link bet. exh and Qs) - Queues] => Consumer, FIFO
+- Exchange types control routing to Queues
+1. Direct -> Queue(s) with matching binding key -> One consumer
+2. Topic -> Msg r sent to diff Q according to different Q(s) depending on content (based on routing algo, wildcard), -> 1 or more consumers
+3. Fanout -> More that one Q (Broadcasting)
+4. Header -> routes messages based on arguments containing headers and optional values
+
+> Ports
+- 5672 - RabbitMQ
+- 15672 - Dashboard
+
+
 # Container management with Portainer
 - Deploy and manage containers
 - Add to docker-compose file
