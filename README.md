@@ -199,6 +199,10 @@ get key1
 - Run Migrartion operaration on application startup automatically
 - 
 
+## SQL Server
+
+sa
+SwN12345678
 
 # Container management with Portainer
 - Deploy and manage containers
@@ -217,3 +221,7 @@ docker rm $(docker ps -aq)
 docker rmi $(docker images -q)
 docker system prune
 
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+- Rebuild  if change in any existing code
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --build
+docker-compose -f docker-compose.yml -f docker-compose.override.yml down
