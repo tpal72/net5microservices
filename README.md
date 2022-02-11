@@ -226,6 +226,23 @@ SwN12345678
 - 5672 - RabbitMQ
 - 15672 - Dashboard
 
+> Mass Transit - Message sender and receiver, help route messages over RabbitMQ, others
+
+### Add class library EventBus.Messages
+
+### Produce RabbitMQ event from Basket.API
+
+- Add EventBus.Messages project reference to Basket.API
+- Modify Dockerfile to add Project
+- Add Nuget MassTransit, MassTransit.RabbitMQ, MassTransit.AspNetCore
+- Register in startup class
+
+### Consume RabbitMQ event in Ordering.API
+
+- Add EventBus.Messages project reference
+- Modify Dockerfile to add Project
+- Add Nuget MassTransit, MassTransit.RabbitMQ, MassTransit.AspNetCore
+- Add Consumer side of code to Startup [Receiver endpoint]
 
 # Container management with Portainer
 - Deploy and manage containers
@@ -243,6 +260,12 @@ docker stop $(docker ps -aq)
 docker rm $(docker ps -aq)
 docker rmi $(docker images -q)
 docker system prune
+
+docker rmi $(docker images -f "dangling=true" -q)
+
+- image sizes of dangling and non-dangling images here:
+
+docker system df -v
 
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 - Rebuild  if change in any existing code
