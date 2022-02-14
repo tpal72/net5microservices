@@ -246,7 +246,36 @@ SwN12345678
 
 ## Containerize Ordering API
 
+# API Gateway with OCELAOT
 
+## <neela>API Gateway pattern</neela>
+
+- Sigle entry point to multiple services
+- BFF - backend for frontend pattern
+- routing [reverse proxy], authentication, authorization, load balancing, throttling, logging, tracing
+- request aggregation headers/query string transformation, correlation pass thru, 
+- service discovery with eureka and consul
+- cross cutting concerns or gateway offloading
+- Multiple gateways should be used [for multiple client types]
+
+### <hara>Ocelot</hara>
+
+> Features
+
+- lightweight, .net core based, opensource
+- works with .net core only
+- add empty .net core project
+
+> Authentication and Authorization
+
+- Use Identity microservices
+- [aspnetrun github](https://github.com/aspnetrun)
+
+> Application
+
+- Ocelot Nuget Package
+- Add Asp.Net core empty project
+- Configure for logging in program.cs
 
 # Container management with Portainer
 - Deploy and manage containers
@@ -275,3 +304,15 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 - Rebuild  if change in any existing code
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --build
 docker-compose -f docker-compose.yml -f docker-compose.override.yml down
+
+<style>
+laal{
+    color:red;
+}
+hara{
+    color:green;
+}
+neela{
+    color:blue;
+}
+</style>
