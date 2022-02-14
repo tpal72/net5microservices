@@ -244,6 +244,10 @@ SwN12345678
 - Add Nuget MassTransit, MassTransit.RabbitMQ, MassTransit.AspNetCore
 - Add Consumer side of code to Startup [Receiver endpoint]
 
+## Containerize Ordering API
+
+
+
 # Container management with Portainer
 - Deploy and manage containers
 - Add to docker-compose file
