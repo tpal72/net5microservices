@@ -276,6 +276,11 @@ SwN12345678
 - Ocelot Nuget Package
 - Add Asp.Net core empty project
 - Configure for logging in program.cs
+- Add ocelot.json, ocelot.Development.json, ocelot.Local.json
+- Port: 5010, Environmet: Local
+- Add ocelot.json to program.cs
+- Rate limiting in Ocelot Gateway
+- Response caching	- install package Ocelot.Cache.CacheManager
 
 # Container management with Portainer
 - Deploy and manage containers
