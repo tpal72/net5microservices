@@ -282,6 +282,12 @@ SwN12345678
 - Rate limiting in Ocelot Gateway
 - Response caching	- install package Ocelot.Cache.CacheManager
 
+> Dockerize
+
+- Change ocelot.?.json - all urls should have container name in the URLs
+- Host => container name and port number should be 80 [default one]
+- Add Dockerfile, amend docker-compose and docker-compose.override files
+
 # Container management with Portainer
 - Deploy and manage containers
 - Add to docker-compose file
