@@ -294,6 +294,18 @@ SwN12345678
 - use IHttpclientfactory - Use typed client, build retry and circuit breaker policies
 - single request, multiple requests to backend systems, single response 
 
+# Securing microservices with IdentityServer4 and Ocelot
+
+- Cross cutting security concern
+- Authentication as a service
+- Protect API with OAuth2.0, MVC Client app with OpenId connect
+- Backing with OCELOT API Gateway
+
+# Shopping Web Application microservice
+
+- Get WebApp from [aspnetrun-basic github](https://github.com/aspnetrun/run-aspnetcore-basics)
+- Remove Entities/Repositories/Migrations/Data folders
+
 # Container management with Portainer
 - Deploy and manage containers
 - Add to docker-compose file
