@@ -288,6 +288,12 @@ SwN12345678
 - Host => container name and port number should be 80 [default one]
 - Add Dockerfile, amend docker-compose and docker-compose.override files
 
+### <hara>Request [Gateway] Aggregator pattern</hara>
+
+- Target multiple microservices rquests into single http request
+- use IHttpclientfactory - Use typed client, build retry and circuit breaker policies
+- single request, multiple requests to backend systems, single response 
+
 # Container management with Portainer
 - Deploy and manage containers
 - Add to docker-compose file
