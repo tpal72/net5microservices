@@ -153,5 +153,9 @@ services:
       - "ApiSettings:GatewayAddress=http://ocelotapigw"
     depends_on:
       - ocelotapigw
+      - catalog.api
+      - basket.api
+      - ordering.api
+      - discount.api
     ports:
       - "8006:80"
