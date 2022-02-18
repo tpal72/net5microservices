@@ -336,10 +336,43 @@ admin1234
 - 6 LogLevels - Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, and None = 6.
 - Log filtering -> appSettings.json add the namespace and logging level
 
-> Configure
+> Configure & Use
 
 - use link [the carlo](https://github.com/thecarlo/elastic-kibana-netcore-serilog)
 - docker-compose -> no need to specify network, default will be used
+- http://localhost:9200/_aliases, http://localhost:9200/products/_search
+
+> Kibana
+
+- Dev Tools - Queries
+1. GET products/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+2. POST products/_doc
+{
+    "name": "iphone_y"
+}
+
+## <neela>Serilog for ElasticSearch and Kibana</neela>
+
+- Sink to ElasticSearch and Kibana
+- Add Serilog to common class library in building blocks
+- Nuget
+1. serilog.aspnetcore
+2. serilog.enrichers.environment
+3. serilog.sinks.elasticsearch
+- Override default logging behaviour before Host configure
+- Kibana => "Connect to your Elasticsearch index", Create Index format => Create Index Pattern
+- Kibana => Main menu => Discover
+
+> Add LoggingDelegatingHadler for intercepting request/response
+
+- Use Http client message handler
+
 
 
 ---------------------------------------------------------------
