@@ -313,6 +313,38 @@ SwN12345678
 admin
 admin1234
 
+---------------------------------------------------------------
+# Microservices Observability, Resilience, Monitoring on .Net
+
+# Implement CROSS Cutting concerns Elastic, Logsearch, Kibana, Web Status etc
+
+## <neela>Elastic search</neela>
+
+- For distributed logging - search and analytics engine
+- RESRful API, fast, open source, scalable
+
+## <neela>Logstash, Elastic Search, Kibana</neela>
+
+- Collect & Transform => Search & Analyse => Visualize & Manage [Logstash => ElasticSearch => Kibana]
+- Serilog => ASP.NET Logging library, Sink to ElasticSearch
+
+> ASP.NET Logging is built in
+
+- providers - console, eventsource, etc
+- insert ILogger for logging
+- Default logging to console
+- 6 LogLevels - Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, and None = 6.
+- Log filtering -> appSettings.json add the namespace and logging level
+
+> Configure
+
+- use link [the carlo](https://github.com/thecarlo/elastic-kibana-netcore-serilog)
+- docker-compose -> no need to specify network, default will be used
+
+
+---------------------------------------------------------------
+
+
 # Docker cleanup
 
 docker ps -aq
