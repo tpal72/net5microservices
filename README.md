@@ -373,6 +373,23 @@ admin1234
 
 - Use Http client message handler
 
+#### <hara>Add serilog to shoppoing aggregator</hara>
+
+- Add serilog and elasticsearch config to appsettings.json
+- Add ref to common.loging
+- Modify program.cs and Startup.cs
+- register delegationhandler
+- Re-index in elasticsearch for new service -> select applogs-* index and refresh
+
+- <hara>Similarily add to all APIs and Gateway project</hara>
+
+> Ocelot Gateway
+
+- Comment out existing logging code
+
+#### <hara>Dockerize</hara>
+
+- Add CommonLogging reference in dockerfile
 
 
 ---------------------------------------------------------------
