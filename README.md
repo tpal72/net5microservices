@@ -426,6 +426,8 @@ admin1234
 
 # Health checks using Watchdog
 
+- [Implementing Health monitoring](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health)
+
 #### <hara>Configure</hara>
 
 - package aspnetcore.diagnostics.healthchecks
@@ -460,8 +462,11 @@ admin1234
 - Use Watchdogs
 - Add new microservice under WebApp - Asp.Net Core MVC, No HTTPS
 - Amend Launch settings - Use Port 5007
-
-
+- NUGET
+1. AspNetCore.HealthChecks.UI
+2. AspNetCore.HealthChecks.UI.Inmemory.storage
+3. Add configuration to appsettings.json
+4. Add "return Redirect("/healthchecks-ui");" to Homecontroller/Index method
 
 ---------------------------------------------------------------
 
