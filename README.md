@@ -391,6 +391,77 @@ admin1234
 
 - Add CommonLogging reference in dockerfile
 
+# Microservices Resilience and Fault tolerance
+
+- Apply Circuit breaker and retry pattern with Polly
+- [Architecting Cloud Native .NET Applications for Azure](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/)
+- Microsoft.Extensions.Http.Polly NUGET package
+
+#### <hara>Polly policies</hara>
+
+- Retry, Circuit breaker, timeout, bulkhead isolation, cache, Fallback, 
+- NUGET - Polly
+- Retry Pattern -> # of retries and waiting time before next attempt [should increase exponentially]
+- Circuit breaker -> 3 mode -> 
+1. closed [all requests go thru, monitor for errors], 
+2. open [returns predefined error], 
+3. half open [some requests sent thru]
+- Bulkhead design pattern -> aim to isolate error. Error in one service does not impact other service
+
+- SEQUENCE: Timeout -> Retry -> Circuit breaker -> Fallback -> Bulkhead
+
+###### <neela>Resilience Pattern - Retry, Circuit Breaker</neela>
+
+- .AddTransientHttpErrorPolicy(policy => policy.WaitAndRetryAsync(3, _ => TimeSpan.FromSeconds(2))) ;
+// 3 retries and wait for 2 sec before retry
+
+- using polly to do advance configuration with advance configuration methods
+- Use AddPolicyHandler method with advance configuration
+
+###### <neela>Use polly for database migrations</neela>
+
+- Ordering.API
+1. Install NUGET polly
+
+
+# Health checks using Watchdog
+
+#### <hara>Configure</hara>
+
+- package aspnetcore.diagnostics.healthchecks
+
+- Start with Catalog.API
+1. Add AspNetCore.HealthChecks.MongoDb
+2. startup.cs - services.AddHealthChecks().AddMongoDb( ...
+3. Add middlewhere ->
+		endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
+
+- Basket.PI
+1. Add AspNetCore.HealthChecks.REDIS Nuget
+2. Use MassTransit for RabbitMQ Health Check
+
+- Ordering.API - SQL Server and RabbitMQ Health check
+1. Use Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore
+
+- Shopping.Aggregator
+1. Check internal healthchecks
+2. AddUrlGroup - Check target urls for health status
+3. NUGET - AspNetCore.HealthChecks.Uris
+
+- aspnetrunbasics
+1. NUGET - AspNetCore.HealthChecks.Uris
+
+#### <hara>Webstatus App for centralized health monitoring</hara>
+
+- Use Watchdogs
+- Add new microservice under WebApp - Asp.Net Core MVC, No HTTPS
+- Amend Launch settings - Use Port 5007
+
+
 
 ---------------------------------------------------------------
 
